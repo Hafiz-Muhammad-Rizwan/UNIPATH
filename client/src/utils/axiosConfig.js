@@ -1,8 +1,18 @@
 import axios from 'axios';
 
+// Determine API base URL based on environment
+const getBaseURL = () => {
+  // In production (Vercel), use the same domain for API calls
+  if (import.meta.env.PROD) {
+    return window.location.origin;
+  }
+  // In development, use environment variable or empty string (Vite proxy)
+  return import.meta.env.VITE_API_URL || '';
+};
+
 // Configure axios defaults
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '', // Empty string means use relative URLs (works with Vite proxy)
+  baseURL: getBaseURL(),
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
