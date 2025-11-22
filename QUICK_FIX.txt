@@ -1,0 +1,65 @@
+═══════════════════════════════════════════════════════════
+  QUICK FIX: MongoDB Atlas Setup (2 Minutes)
+═══════════════════════════════════════════════════════════
+
+STEP 1: Sign Up (30 seconds)
+─────────────────────────────
+👉 Go to: https://www.mongodb.com/cloud/atlas/register
+   Click "Try Free" or "Get started free"
+   Sign up with Google or Email
+   NO CREDIT CARD REQUIRED!
+
+
+STEP 2: Create Cluster (30 seconds)
+────────────────────────────────────
+👉 Select "M0 FREE" tier
+👉 Choose AWS provider
+👉 Choose region (Mumbai for Pakistan)
+👉 Click "Create Deployment"
+👉 Wait 1-2 minutes
+
+
+STEP 3: Create Database User (30 seconds)
+─────────────────────────────────────────
+👉 Username: pakuni (or any name)
+👉 Password: Create one (SAVE IT!)
+👉 Click "Create Database User"
+
+
+STEP 4: Whitelist IP (30 seconds)
+───────────────────────────────────
+👉 Click "Allow Access from Anywhere" (0.0.0.0/0)
+👉 Click "Finish and Close"
+
+
+STEP 5: Get Connection String (30 seconds)
+──────────────────────────────────────────
+👉 Click "Connect" button
+👉 Choose "Connect your application"
+👉 Copy the connection string
+   (Looks like: mongodb+srv://pakuni:<password>@cluster0.xxxxx.mongodb.net/...)
+
+
+STEP 6: Update .env File
+─────────────────────────
+👉 Open: D:\STARK\server\.env
+👉 Find: MONGODB_URI=mongodb://localhost:27017/pakuniconnect
+👉 Replace with your connection string BUT:
+   - Replace <password> with your actual password
+   - ADD /pakuniconnect before the ?
+
+Example:
+MONGODB_URI=mongodb+srv://pakuni:yourpassword@cluster0.abc123.mongodb.net/pakuniconnect?retryWrites=true&w=majority
+
+
+STEP 7: Restart Server
+───────────────────────
+👉 Stop server (Ctrl+C)
+👉 Run: npm run dev
+👉 Try registration again!
+
+
+═══════════════════════════════════════════════════════════
+  DETAILED GUIDE: See SETUP_MONGODB_NOW.md
+═══════════════════════════════════════════════════════════
+
